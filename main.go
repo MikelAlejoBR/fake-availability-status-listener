@@ -20,6 +20,9 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// Initialize Kafka once we are sure that the configuration variables have values.
+	kafka.Initialize()
+
 	go ListenForAvailabilityStatusRequests()
 	http.HandleFunc("/health", HandleHealthEndpoint)
 	http.HandleFunc("/availability-check", HandleAvailabilityCheck)
