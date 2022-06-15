@@ -31,7 +31,7 @@ type StatusMessage struct {
 }
 
 // Initialize the Kafka reader and writer.
-func init() {
+func Initialize() {
 	KafkaReader = kafka.NewReader(kafka.ReaderConfig{
 		Brokers:                []string{config.KafkaUrl},
 		Topic: satelliteStatusTopic,
