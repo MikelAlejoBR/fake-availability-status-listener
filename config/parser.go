@@ -42,7 +42,7 @@ func ParseConfig() error {
 			return fmt.Errorf("configuration missing: Kafka port")
 		}
 
-		KafkaUrl = fmt.Sprintf("%s:%d", hostname, port)
+		KafkaUrl = fmt.Sprintf("%s:%d", hostname, *port)
 	} else {
 		hostname := os.Getenv("QUEUE_HOST")
 		if hostname == "" {
