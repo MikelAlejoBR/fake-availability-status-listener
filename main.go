@@ -74,7 +74,7 @@ func HandleHealthEndpoint(w http.ResponseWriter, _ *http.Request) {
 		return
 	}
 
-	w.WriteHeader(http.StatusNoContent)
+	w.WriteHeader(http.StatusOK)
 }
 
 // HandleAvailabilityCheck checks that the incoming request has the required "x-rh-identity" header, extracts the
