@@ -5,11 +5,11 @@ on the `10000` port by default.
 
 Once built with `go build`, be sure to provide the following environment variables when running the binary:
 
-* `PORT` — If set, it runs on the specified port. Example value: `10000`
+* `PORT` — If set, it runs on the specified port. Default value: `8000`
 * `QUEUE_HOST` — If Clowder is enabled it's not needed. Example value: `localhost`
 * `QUEUE_PORT` — If Clowder is enabled it's not needed. Example value: `9092`
 * `SOURCES_API_HOST` Example value: `http://localhost`
-* `SOURCES_API_PORT` Example value: `SOURCES_API_PORT=8000`
+* `SOURCES_API_PORT` Example value: `SOURCES_API_PORT=10000`
 
 It has two endpoints:
 

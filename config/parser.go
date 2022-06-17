@@ -7,7 +7,7 @@ import (
 )
 
 // defaultPort is the default port the service will run on.
-const defaultPort = "10000"
+const defaultPort = "8000"
 // sourcesAppName is the way the "sources-api" is named in Clowder.
 const sourcesAppName = "sources-api"
 // sourcesV31Path is the path to the latest API version.
