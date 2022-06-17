@@ -47,7 +47,7 @@ func ParseConfig() error {
 
 		// Build the endpoints' paths.
 		SourcesApiHealthUrl = fmt.Sprintf("http://%s:%d/health", sourceDep.Hostname, sourceDep.Port)
-		SourcesApiUrl = fmt.Sprintf("%s:%d/%s", sourceDep.Hostname, sourceDep.Port, sourcesV31Path)
+		SourcesApiUrl = fmt.Sprintf("http://%s:%d/%s", sourceDep.Hostname, sourceDep.Port, sourcesV31Path)
 
 		kafkaBroker := v1.LoadedConfig.Kafka.Brokers[0]
 
