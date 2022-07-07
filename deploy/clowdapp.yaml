@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: sources-fasp
+objects:
+- apiVersion: cloud.redhat.com/v1alpha1
+  kind: ClowdApp
+  metadata:
+    name: sources-fasp
+  spec:
+    envName: ${ENV_NAME}
+    dependencies:
+      - "sources-api"
+    deployments:
+      - name: sources-fasp
+        minReplicas: 1
+        webServices:
+          public:
+            enabled: true
+        podSpec:
+          image: quay.io/mikelalejobr/fake-availability-status-producer:latest
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            timeoutSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 8000
+    kafkaTopics:
+      - topicName: platform.topological-inventory.operations-satellite
+        partitions: 1
+        replicas: 1
+      - topicName: platform.sources.status
+        partitions: 1
+        replicas: 1
+parameters:
+- description: Clowder ENV
+  name: ENV_NAME
+  required: true
